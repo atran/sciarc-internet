@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- Required for media queries -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Design Example</title>
+  <style>
+    /* Base styles */
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    header {
+      background-color: #333;
+      width: 100%;
+      padding: 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .callouts {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .callout {
+      padding: 20px;
+      margin: 10px;
+      background-color: #d4d4d4;
+      text-align: center;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .callouts {
+        flex-direction: column-reverse;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Responsive Design Example</h1>
+  </header>
+  <main>
+    <section class="callouts">
+      <div class="callout">
+        <h3>Callout 1</h3>
+        <p>Detail for callout 1.</p>
+      </div>
+      <div class="callout">
+        <h3>Callout 2</h3>
+        <p>Detail for callout 2.</p>
+      </div>
+      <div class="callout">
+        <h3>Callout 3</h3>
+        <p>Detail for callout 3.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Flags</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .flag {
+            width: 150px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stripe {
+            flex: 1;
+        }
+
+        /* Default flag: France (Blue, White, Red) */
+        .stripe1 {
+            background-color: #0055a4;
+            /* Blue */
+        }
+
+        .stripe2 {
+            background-color: #ffffff;
+            /* White */
+        }
+
+        .stripe3 {
+            background-color: #ef4135;
+            /* Red */
+        }
+
+        /* Small screens (e.g., mobile): Italy (Green, White, Red) */
+        @media (max-width: 320px) {
+            .stripe1 {
+                background-color: #009246;
+                /* Green */
+            }
+
+            .stripe2 {
+                background-color: #ffffff;
+                /* White */
+            }
+
+            .stripe3 {
+                background-color: #ce2b37;
+                /* Red */
+            }
+        }
+
+        /* Medium screens (e.g., tablets): Germany (Black, Red, Yellow) */
+        @media (min-width: 321px) and (max-width: 768px) {
+            .flag {
+                flex-direction: column;
+                /* Change to horizontal stripes */
+            }
+
+            .stripe1 {
+                background-color: #000000;
+                /* Black */
+            }
+
+            .stripe2 {
+                background-color: #dd0000;
+                /* Red */
+            }
+
+            .stripe3 {
+                background-color: #ffce00;
+                /* Yellow */
+            }
+        }
+
+        /* Large screens (e.g., desktops): Netherlands (Red, White, Blue) */
+        @media (min-width: 769px) {
+            .stripe1 {
+                background-color: #21468b;
+                /* Blue */
+            }
+
+            .stripe2 {
+                background-color: #ffffff;
+                /* White */
+            }
+
+            .stripe3 {
+                background-color: #ae1c28;
+                /* Red */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flag">
+        <div class="stripe stripe1"></div>
+        <div class="stripe stripe2"></div>
+        <div class="stripe stripe3"></div>
+    </div>
+</body>
+
+</html>

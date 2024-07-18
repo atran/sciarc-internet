@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mousemove</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      height: 200vh;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 5px;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <p>
+     x: <span id="xPositionText">0</span>
+     y: <span id="yPositionText">0</span>
+     </p>
+  </div>
+
+  <script type="text/javascript">
+    // Scroll event
+    window.addEventListener('scroll', function(e) {
+      var windowHeight = window.innerHeight;
+      console.log('Scrolled at ' , window.scrollY, windowHeight);
+    });
+
+    // Mouse move event
+    document.addEventListener('mousemove', function(e) {
+      var xLoc = e.pageX;
+      var yLoc = e.pageY;
+
+      // console.log(xLoc, yLoc);
+
+      var boxEl = document.querySelector('.box');
+      boxEl.style.top = yLoc + 'px';
+      boxEl.style.left = xLoc + 'px';
+
+      var xPosEl = document.querySelector('#xPositionText');
+      var yPosEl = document.querySelector('#yPositionText');
+
+      xPosEl.innerHTML = xLoc;
+      yPosEl.innerHTML = yLoc;
+
+      if (yLoc > 100) {
+        boxEl.style.backgroundColor = 'red';
+      } else {
+        boxEl.style.backgroundColor = '#ccc';
+      }
+
+    });
+  </script>
+</body>
+
+</html>

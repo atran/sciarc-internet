@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Over Objects</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .box {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 5px;
+        background-color: #007BFF;
+      }
+
+      .red { background-color: red; }
+      .purple { background-color: purple; }
+
+      #box-0 { top: 20%; left: 20%; }
+      #box-1 { top: 50%; left: 50%; }
+      #box-2 { top: 80%; left: 80%; }
+
+      .follow-cursor,
+      .info {
+        background-color: #ccc;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px 20px;
+        display: none;
+      }
+
+      .follow-cursor {
+        position: absolute;
+      }
+
+      .info {
+        position: fixed;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box red" id="box-0"></div>
+    <div class="box purple" id="box-1"></div>
+    <div class="box" id="box-2"></div>
+
+    <div class="follow-cursor">Nothing here.</div>
+    <div class="info">No information.</div>
+
+    <script type="text/javascript">
+      // We use an array of objects to represent
+      // each box
+      var boxes = [
+        {
+          elId: 'box-0',
+          mouseDesc: 'In the red box',
+          infoDesc: 'More information about first box'
+        },
+        {
+          elId: 'box-1',
+          mouseDesc: 'In the purple box',
+          infoDesc: 'More information about second box'
+        },
+        {
+          elId: 'box-2',
+          mouseDesc: 'In the blue box',
+          infoDesc: 'More information about third box'
+        },
+      ];
+
+      // Let's get the elements we're going to work with
+      var boxEls = document.querySelectorAll('.box');
+      var cursorEl = document.querySelector('.follow-cursor');
+      var infoEl = document.querySelector('.info');
+
+      // Iterate over each box element
+      boxEls.forEach(function(boxEl) {
+        // Box Mouse enter event
+        boxEl.addEventListener('mouseenter', function(){
+          cursorEl.style.display = 'block';
+          infoEl.style.display = 'block';
+
+          var theBoxObj = boxes.find(function(boxObj) { 
+            return boxObj.elId === boxEl.id;
+          });
+          
+          cursorEl.innerHTML = theBoxObj.mouseDesc;
+          infoEl.innerHTML = theBoxObj.infoDesc;
+
+        })
+
+        // Box Mouse move event
+        boxEl.addEventListener('mousemove', function(e){
+          cursorEl.style.left = e.pageX + 'px';
+          cursorEl.style.top = e.pageY + 'px';
+        })
+
+        // Box Mouse leave event
+        boxEl.addEventListener('mouseleave', function(){
+          cursorEl.style.display = 'none';
+          infoEl.style.display = 'none';
+        })
+      })
+
+    </script>
+  </body>
+</html>

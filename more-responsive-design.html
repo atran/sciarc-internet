@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Responsive Design</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        position: relative;
+      }
+
+      .info-box {
+        width: 366px;
+        position: absolute;
+        background-color: #fff;
+        right: 3px;
+        padding-top: 13px;
+        padding-left: 13px;
+        padding-right: 16px;
+      }
+
+      .info-heading,
+      .info-content,
+      .info-meta {
+        padding: 5px 10px;
+      }
+
+      .info-heading {
+        display: flex;
+        margin-bottom: 9px;
+        border-radius: 10px;
+        border: 0.5px solid #6D6D6D;
+        background: rgba(252, 163, 17, 0.40);
+      }
+
+      .info-content {
+        border-radius: 10px;
+        border: 0.5px solid #6D6D6D;
+        background: rgba(252, 163, 17, 0.20);
+        line-height: 2em;
+      }
+
+      .info-meta {
+        list-style: none;
+      }
+
+      .info-meta li {
+        margin-bottom: 10px;
+      }
+
+      .image-holder img {
+        width: 100%;
+        height: auto;
+      }
+
+      @media (max-width: 767px) {
+        .container {
+          display: flex;
+          flex-direction: column-reverse;
+        }
+        .info-box {
+          position: static;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <div class="info-box">
+        <div class="info-heading">
+          <img src="images/menu.png" alt="toggle" />
+          <h2>Details</h2>
+        </div>
+        <div class="info-content">
+          Weidlake Dr 6361, Los Angeles<br />
+          Price: $ 980.000,00<br />
+          Size: 7.641 Square feet<br />
+          Use: Residential - Single family Condition: Vacant Land<br />
+          <br />
+          Maximum Height: 6 mts (2 levels)  <br />
+          Buildable Area: 3,438.45 sq ft
+        </div>
+        <ul class="info-meta">
+          <li>Google Earth View</li>
+          <li>Render View</li>
+          <li>Sunlight Path</li>
+          <li>Topography</li>
+        </ul>
+      </div>
+      <div class="image-holder">
+        <img src="images/street-view.jpg" alt="street view of ZXX" />
+      </div>
+    </main>
+  </body>
+</html>
